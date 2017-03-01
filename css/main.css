@@ -6,3 +6,12 @@ body {
     margin: 0px;
     padding: 0px;
 }
+/* publish */
+.container {
+	width: 800px;
+	margin: 0 auto;
+	padding: 8px;
+}
+.form-group {
+	margin-bottom: 15px;
+}

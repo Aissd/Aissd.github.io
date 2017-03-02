@@ -1,0 +1,121 @@
+/*
+	控制箭头方向，关键在于设置border的颜色；
+	若想箭头向上，则设置上右下左的顺时针方向，设置下方向的颜色值，其余全部透明
+	例如：border-color: transparent transparent #f00 transparent;
+*/
+
+/*箭头向上*/
+.arrow-up {
+	border: 1px solid #09f;
+    position: absolute;
+    background-color: #fff;
+    left: 180px;
+    top: 50px;
+}
+.arrow-up:before,
+.arrow-up:after {
+    content: "";
+    display: block;
+    border-width: 5px;
+    position: absolute;
+    top: -11px;
+    left: 35px;
+    border-style: solid dashed dashed;
+    border-color: transparent transparent #09f transparent;
+    font-size: 0;
+    line-height: 0;
+}
+.arrow-up:after {    
+    top: -10px;
+    border-color: transparent transparent #fff transparent;
+}
+
+/*箭头向右*/
+.arrow-right {
+	border: 1px solid #09f;
+    position: absolute;
+    background-color: #fff;
+    left: 75px;
+    top: 25px;
+}
+.arrow-right:before,
+.arrow-right:after {
+    content: "";
+    display: block;
+    border-width: 5px;
+    position: absolute;
+    top: 5px;
+    right: -11px;
+    border-style: solid dashed dashed;
+    border-color: transparent transparent transparent #09f;
+    font-size: 0;
+    line-height: 0;
+}
+.arrow-right:after {
+    top: 5px;
+    border-color: transparent transparent transparent #fff;
+    right: -10px;
+}
+
+/*箭头向下*/
+.arrow-dowm {    
+	border: 1px solid #09f;
+    position: absolute;
+    background-color: #fff;
+    left: 180px;
+    top: 0;
+}
+.arrow-dowm:before,
+.arrow-dowm:after {
+    content: "";
+    display: block;
+    border-width: 5px;
+    position: absolute;
+    bottom: -11px;
+    left: 35px;
+    border-style: solid dashed dashed;
+    border-color: #09f transparent transparent transparent;
+    font-size: 0;
+    line-height: 0;
+}
+.arrow-dowm:after {
+    bottom: -10px;
+    border-color: #fff transparent transparent transparent;
+}
+
+/*箭头向左*/
+.arrow-left {
+	border: 1px solid #09f;
+    position: absolute;
+    background-color: #fff;
+    left: 280px;
+    top: 25px;
+}
+.arrow-left:before,
+.arrow-left:after {
+    content: "";
+    display: block;
+    border-width: 5px;
+    position: absolute;
+    top: 5px;
+    left: -11px;
+    border-style: solid dashed dashed;
+    border-color: transparent #09f transparent transparent;
+    font-size: 0;
+    line-height: 0;
+}
+.arrow-left:after {
+    top: 5px;
+    border-color: transparent #fff transparent transparent;
+    left: -10px;
+}
+
+
+.container {
+    width: 400px;
+	padding: 10px 20px;
+	position: relative;
+}
+.text-center {
+	text-align: center;
+}

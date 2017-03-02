@@ -11,6 +11,7 @@
     background-color: #fff;
     left: 180px;
     top: 50px;
+    padding: 10px;
 }
 .arrow-up:before,
 .arrow-up:after {
@@ -35,8 +36,9 @@
 	border: 1px solid #09f;
     position: absolute;
     background-color: #fff;
-    left: 75px;
+    left: 60px;
     top: 25px;
+    padding: 10px;
 }
 .arrow-right:before,
 .arrow-right:after {
@@ -63,7 +65,8 @@
     position: absolute;
     background-color: #fff;
     left: 180px;
-    top: 0;
+    top: -20px;
+    padding: 10px;
 }
 .arrow-dowm:before,
 .arrow-dowm:after {
@@ -90,6 +93,7 @@
     background-color: #fff;
     left: 280px;
     top: 25px;
+    padding: 10px;
 }
 .arrow-left:before,
 .arrow-left:after {

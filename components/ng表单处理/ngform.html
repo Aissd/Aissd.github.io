@@ -12,35 +12,59 @@
     <div class="container" ng-controller="ngformController">
         <form name="ngform">
             <h3 class="text-center">ng表单处理</h3>
+            <!--输入框 username-->
             <div class="form-group">
                 <label for="username">username</label>
                 <input type="text" class="form-control" id="username" name="username" ng-model="ngformData.usename" ng-minlength="6" placeholder="username" required />
                 <span class="toast" ng-if="ngform.username.$dirty && ngform.username.$invalid">最少6个字符<i class="arrow-down"></i></span>
             </div>
+            <!--输入框 password-->
             <div class="form-group">
                 <label for="password">password</label>
                 <input type="password" class="form-control" id="password" name="password" ng-model="ngformData.password" ng-minlength="6" placeholder="password" required />
                 <span class="toast" ng-if="ngform.password.$dirty && ngform.password.$invalid">最少6个字符<i class="arrow-down"></i></span>
             </div>
+            <!--输入框 tel-->
             <div class="form-group">
                 <label for="tel">tel</label>
                 <input type="tel" class="form-control" id="tel" name="tel" ng-model="ngformData.tel" maxlength="11" ng-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/" placeholder="tel" required />
                 <span class="toast" ng-if="ngform.tel.$dirty && ngform.tel.$invalid">手机号码格式错误<i class="arrow-down"></i></span>
             </div>
+            <!--输入框 remark-->
             <div class="form-group">
                 <label for="remark">remark</label>
                 <textarea name="remark" id="remark" class="form-control" name="remark" ng-model="ngformData.remark" placeholder="remark" required></textarea>
                 <span class="toast" ng-if="ngform.remark.$dirty && ngform.remark.$invalid"><i class="arrow-down"></i></span>
             </div>
+            <!--复选框 -->
             <div class="checkbox row">
                 <h5 class="text-center">至少选择一个</h5>
                 <label class="col-lg-3" ng-repeat="interest in ngformObj.interests track by $index">
                     <input type="checkbox" id="{{interest.interest_id}}" name="interesting" value="{{interest.interest_name}}" ng-click="select($event)" /> {{interest.interest_name}}
                 </label>
+                <div class="" ng-bind="'点选的id为: ' + ngformData.selectid"></div>
+                <div class="" ng-bind="'点选的name为: ' + ngformData.selectname"></div>
             </div>
-            <div class="" ng-bind="'点选的id为: ' + ngformData.selectid"></div>
-            <div class="" ng-bind="'点选的name为: ' + ngformData.selectname"></div>
-            <button type="button" class="btn btn-primary btn-block" ng-click="submit()" ng-disabled="ngform.$invalid || ngformData.selectid.length === 0">Submit</button>
+            <!--单选框 -->
+            <div class="checkbox row">
+                <h5 class="text-center">选择一个</h5>
+                <label class="col-lg-3" ng-repeat="nation in ngformObj.nations track by $index">
+                    <input type="radio" name="nation" value="{{nation.nation_id}}" ng-model="ngformData.nation" /> {{nation.nation_name}}
+                </label>
+                <div ng-bind="'点选的id为：' + ngformData.nation"></div>
+            </div>
+            <!--下拉框-->
+            <div class="form-group">
+                <select class="form-control" ng-model="ngformData.profession">
+                    <option value="">请选择</option>
+                    <option value="{{profession.profession_id}}" ng-repeat="profession in ngformObj.professions track by $index" ng-bind="profession.profession_name"></option>
+                </select>
+                <div ng-bind="'点选的id为：' + ngformData.profession"></div>
+            </div>
+            <!--按钮-->
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block" ng-click="submit()" ng-disabled="ngform.$invalid || ngformData.selectid.length === 0">Submit</button>
+            </div>
         </form>
     </div>
     <script type="text/javascript" src="../../plugins/AngularJS/angular.min.js"></script>

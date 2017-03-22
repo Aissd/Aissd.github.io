@@ -18,5 +18,41 @@
                "interest_id": "4",
                "interest_name": "swimming"
            }
+     ],
+     "nations": [
+        {
+            "nation_id": "1",
+            "nation_name": "China"
+        },
+        {
+            "nation_id": "2",
+            "nation_name": "America"
+        },
+        {
+            "nation_id": "3",
+            "nation_name": "England"
+        },
+        {
+            "nation_id": "4",
+            "nation_name": "Janpan"
+        }
+     ],
+     "professions": [
+        {
+            "profession_id": "1",
+            "profession_name": "programmer"
+        },
+        {
+            "profession_id": "2",
+            "profession_name": "doctor"
+        },
+        {
+            "profession_id": "3",
+            "profession_name": "teacher"
+        },
+        {
+            "profession_id": "4",
+            "profession_name": "soldier"
+        }
      ]
 }

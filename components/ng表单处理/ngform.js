@@ -9,11 +9,12 @@ app.controller('ngformController', ['$scope', '$http', function($scope, $http){
     initNgFormFn();
 
     function initNgFormFn() {
-        // 获取兴趣数组
         $http.get('ngform.json').success(function(res){
             if(res.code === 0) {
                 $scope.ngformObj  = {
-                    interests: res.interesting
+                    interests: res.interesting,
+                    nations: res.nations,
+                    professions: res.professions
                 }
             }
         }).error(function(res){

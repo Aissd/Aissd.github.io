@@ -22,14 +22,15 @@ app.controller('ngformController', ['$scope', '$http', function($scope, $http){
         });
     }
 
-    $scope.ngformData.selectid = [];
-    $scope.ngformData.selectname = [];
+    $scope.ngformData.selectid = []; // 用来保存已选的复选框id
+    $scope.ngformData.selectname = []; // 用来保存已选的复选框name
     // ----------------------点击复选框
     $scope.select = function($event){
-        var selectid = $scope.ngformData.selectid;
-        var selectname = $scope.ngformData.selectname;
-        var target = $event.target,
-            ischecked = target.checked,
+        // ng的event对象
+        var selectid = $scope.ngformData.selectid,
+            selectname = $scope.ngformData.selectname,
+            target = $event.target, // 获取该点击对象
+            ischecked = target.checked, // 获取该复选框的状态
             action = ischecked ? 'add' : 'remove',
             id = target.id,
             name = target.name,

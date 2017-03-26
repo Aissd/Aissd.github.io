@@ -1,0 +1,7 @@
+<div class="first" ng-controller="firstController">
+    <h1 class="first-title">first</h1>
+    <p>第一种通过js来带参跳转</p>
+    <button class="btn btn-primary" ng-click="next()">下一页</button>
+    <p>第二种直接在页面来带参跳转</p>
+    <button class="btn btn-primary" ui-sref="second({second_params: '123'})">下一页</button>
+</div>

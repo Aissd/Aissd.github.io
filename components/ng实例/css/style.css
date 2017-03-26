@@ -1,0 +1,24 @@
+/*first*/
+.first {
+    /*background-color: #eee;*/
+}
+.second {
+    /*background-color: #ddd;*/
+}
+.third {
+    /*background-color: #ccc;*/
+}
+.fourth {
+    /*background-color: #bbb;*/
+}
+.fifth {
+    /*background-color: #aaa;*/
+}
+.first-title,
+.second-title,
+.third-title,
+.fourth-title,
+.fifth-title, {
+    font-size: 4rem;
+    text-align: center;
+}

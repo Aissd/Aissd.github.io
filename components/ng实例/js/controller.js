@@ -6,7 +6,7 @@ app.controller('indexController', ['$scope', '$state', function($scope, $state){
 // first controller
 app.controller('firstController', ['$scope', '$state', function($scope, $state){
     $scope.next = function(){
-        $state.go('second', {params: '123'});
+        $state.go('second', {second_params: '123'});
     };
 }]);
 

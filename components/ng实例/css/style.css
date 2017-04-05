@@ -1,18 +1,18 @@
 /*first*/
 .first {
-    /*background-color: #eee;*/
+
 }
 .second {
-    /*background-color: #ddd;*/
+
 }
 .third {
-    /*background-color: #ccc;*/
+
 }
 .fourth {
-    /*background-color: #bbb;*/
+
 }
 .fifth {
-    /*background-color: #aaa;*/
+
 }
 .first-title,
 .second-title,
@@ -21,4 +21,25 @@
 .fifth-title, {
     font-size: 4rem;
     text-align: center;
+}
+
+/**/
+.masker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+.masker img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    margin-left: -24px;
+    margin-top: -24px;
 }

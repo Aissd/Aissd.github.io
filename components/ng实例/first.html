@@ -4,4 +4,20 @@
     <button class="btn btn-primary" ng-click="next()">下一页</button>
     <p>第二种直接在页面来带参跳转</p>
     <button class="btn btn-primary" ui-sref="second({second_params: '123'})">下一页</button>
+    ngList实例：
+    <input type="text" ng-model="listmodel" ng-List="|" />
+    <div ng-bind="'ngList示例：' + listmodel"></div>
+
+    <!-- A 属性形式的指令（建议） -->
+    <div masker-layer ng-if="!isshowlayer"></div>
+
+    <!-- E 标签形式的指令（建议） -->
+    <!-- <masker-layer></masker-layer> -->
+
+    <!-- C class形式的指令 -->
+    <!-- <div class="maskerLayer"></div> -->
+
+    <!-- M 注释形式的指令:注意注释变量两侧必须加上空格 否则不会正确执行这个指令 -->
+    <!-- directive:masker-layer -->
+    <!-- <div></div> -->
 </div>

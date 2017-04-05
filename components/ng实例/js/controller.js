@@ -6,6 +6,8 @@ app.controller('indexController', ['$scope', '$state', function($scope, $state){
 // first controller
 app.controller('firstController', ['$scope', '$state', function($scope, $state){
     $scope.next = function(){
+        // ngList指令标明该ngModel输出来的为数组，ngList可指定分隔符
+        console.log($scope.listmodel);
         $state.go('second', {second_params: '123'});
     };
 }]);

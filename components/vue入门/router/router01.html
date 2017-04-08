@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title>vue router</title>
+</head>
+<body>
+    <div id="app">
+        <p>
+            <!-- <router-link to="/user">/user/foo</router-link><br />
+            <router-link to="/user/profile">/user/foo/profile</router-link><br />
+            <router-link to="/user/posts">/user/foo/posts</router-link><br /> -->
+            <!-- <router-link to="{ name: 'user', params: { userId: 123}}">/user/foo</router-link><br />
+            <router-link to="{ name: 'profile', params: { userId: 345}}">/user/foo/profile</router-link><br />
+            <router-link to="{ name: 'posts', params: { userId: 567}}">/user/foo/posts</router-link><br /> -->
+
+            <a href="javascript:;" v-on:click="home">/user/foo</a><br />
+            <a href="javascript:;" v-on:click="profile">/user/foo/profile</a><br />
+            <a href="javascript:;" v-on:click="posts">/user/foo/posts</a>
+        </p>
+        <router-view></router-view>
+    </div>
+    <script src="../js/vue.min.js" charset="utf-8"></script>
+    <script src="../js/vue-router.js" charset="utf-8"></script>
+    <script src="router01.js" charset="utf-8"></script>
+</body>
+</html>

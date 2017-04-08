@@ -69,11 +69,11 @@ const app = new Vue({
         },
         profile: function(){
             // router.push({ name: 'profile', params: { userId: 'profile' }});
-            router.push({ name: 'profile', params: { id: '123' }});
+            router.push({ name: 'profile', params: { id: 'profile' }});
         },
         posts: function(){
             // router.push({ name: 'posts', params: { userId: 'posts' }});
-            router.push({ name: 'posts', params: { id: '123' }});
+            router.push({ name: 'posts', params: { id: 'posts' }});
         }
     }
  }).$mount('#app');

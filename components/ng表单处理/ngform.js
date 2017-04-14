@@ -15,7 +15,7 @@ app.controller('ngformController', ['$scope', '$http', function($scope, $http){
                     interests: res.interesting,
                     nations: res.nations,
                     professions: res.professions
-                }
+                };
             }
         }).error(function(res){
 

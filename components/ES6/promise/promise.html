@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+<body>
+    <div ng-controller="promiseController"></div>
+    <script src="../../../plugins/AngularJS/angular.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+        app.controller('promiseController', ['$scope', '$http' function($scope, $http){
+            $http.get('config.json').success(success).error(error);
+        }]);
+    </script>
+</body>
+</html>

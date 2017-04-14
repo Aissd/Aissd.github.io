@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+            let命令总结：
+            1、let命令只再所在的代码块内有效；
+            2、for循环的计数器，就很适合使用let命令；
+            3、let所声明的变量一定要在声明后使用，否则会报错，不存在变量提升；
+            4、在块中存在let和const命令，在这个区块对这些命令声明的变量会形成封闭作用域，在let命令声明变量之前使用就会报错；(TDZ - 暂时性死区)
+            5、let不允许在相同作用域内重复声明同一个变量；
+            6、TDZ 意味着typeof不再试一个百分之百安全的操作；
+        */
+
+        /*
+            let命令只再所在的代码块内有效；
+        */
+        {
+            let a = 10;
+            var b = 1;
+        }
+        // console.log(a); // Uncaught ReferenceError: a is not defined
+        // console.log(b);
+
+        /*
+            for循环的计数器，就很合适使用let命令。
+        */
+        for (let i = 0; i < 10; i++) {}
+        // console.log(i); // Uncaught ReferenceError: i is not defined
+
+        /*
+            let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。（不存在变量提升）
+            ES6明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
+            总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”。（使用let声明变量时，只要变量在还没有声明完成前使用，就会报错。）
+        */
+        var tmp = 123;
+        if (true) {
+          tmp = 'abc'; // ReferenceError
+          let tmp;
+        }
+
+        if (true) {
+          // TDZ开始
+          tmp = 'abc'; // ReferenceError
+          console.log(tmp); // ReferenceError
+
+          let tmp; // TDZ结束
+          console.log(tmp); // undefined
+
+          tmp = 123;
+          console.log(tmp); // 123
+        }
+
+        /*
+            块级作用域总结：
+            1、为什么需要块级作用域：
+                1.1、内层变量可能会覆盖外层变量（变量的提升）
+                1.2、用来计数的循环变量泄露为全局变量
+            2、let实际上为JavaScript新增了块级作用域
+            3、ES6允许块级作用域任意嵌套。外层作用域无法读取内层作用域的变量。
+            4、内层作用域可以定义外层作用域的同名变量。
+            5、块级作用域的出现，立即执行函数表达式（IIFE）不再必要了；
+            6、块级作用域是一个语句，将多个操作封装在一起，没有返回值；
+        */
+        var tmp = new Date();
+
+        // 1、
+        function f() {
+            console.log(tmp); // 变量提升导致为undefined
+            if (false) {
+                var tmp = 'hello world';
+            }
+        }
+        f(); // undefined
+        // 2、
+        var s = 'hello';
+        for (var i = 0; i < s.length; i++) {
+            console.log(s[i]);
+        }
+        console.log(i); // 5
+        // 上面代码中，变量i只用来控制循环，但是循环结束后，它并没有消失，泄露成了全局变量。
+
+        /*
+            do表达式总结：
+            1、可将块级作用域变为表达式，也就是说可以返回值
+        */
+        let x = do {
+            let t = f();
+            t * t + 1;
+        };
+        // 变量x会得到整个块级作用域的返回值。
+
+        /*
+            const命令：
+            1、声明一个只读常量，一旦声明，常量的值就不能改变；
+            2、一旦声明，就必须立即初始化，不能留到以后赋值；
+            3、只在声明所在的块级作用域内有效；
+            4、声明的常量不存在提升，同样存在暂时性死区，必须在声明的位置后面使用；
+            5、声明的常量不可重复声明；
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "queryColumn": "cm_displacement",
+    "queryColumnName": "请选择排量",
+    "queryValues": [
+      {
+        "cm_model_value_id": "123914372226251811",
+        "cm_model_value": "4.4T"
+      }
+    ]
+  },
+  {
+    "queryColumn": "cm_model_year",
+    "queryColumnName": "请选择年款",
+    "queryValues": [
+      {
+        "cm_model_value_id": "123914371655826457",
+        "cm_model_value": "2007"
+      }
+    ]
+  },
+  {
+    "queryColumn": "cm_trans_desc",
+    "queryColumnName": "请选择类别",
+    "queryValues": [
+      {
+        "cm_model_value_id": "123914372847008796",
+        "cm_model_value": "手自一体变速器(AMT)"
+      }
+    ]
+  }
+]

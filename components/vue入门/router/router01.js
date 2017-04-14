@@ -41,7 +41,7 @@ const router = new VueRouter({
                 // UserProfile will be rendered inside User's <router-view>
                 // when /user/:id/profile is matched
                 {
-                    path: 'profile',
+                    path: '/profile/:id',
                     component: UserProfile,
                     name: 'profile'
                 },
@@ -49,7 +49,7 @@ const router = new VueRouter({
                 // UserPosts will be rendered inside User's <router-view>
                 // when /user/:id/posts is matched
                 {
-                    path: 'posts',
+                    path: '/posts/:id',
                     component: UserPosts,
                     name: 'posts'
                 }
@@ -69,11 +69,11 @@ const app = new Vue({
         },
         profile: function(){
             // router.push({ name: 'profile', params: { userId: 'profile' }});
-            router.push({ name: 'profile', params: { id: 'profile' }});
+            router.push({ name: 'profile', params: { id: '345' }});
         },
         posts: function(){
             // router.push({ name: 'posts', params: { userId: 'posts' }});
-            router.push({ name: 'posts', params: { id: 'posts' }});
+            router.push({ name: 'posts', params: { id: '567' }});
         }
     }
  }).$mount('#app');

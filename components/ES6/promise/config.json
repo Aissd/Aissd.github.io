@@ -1,0 +1,35 @@
+{
+  "code": 0,
+  "msg": "OK ",
+  "data": [
+    {
+      "cm_factory_id": "123914359693671445",
+      "cm_factory": "长安标致雪铁龙",
+      "list": [
+        {
+          "cm_model_id": "123914361421724694",
+          "cm_model": "DS 4S"
+        }
+      ]
+    },
+    {
+      "cm_factory_id": "123914359744003077",
+      "cm_factory": "雪铁龙汽车",
+      "list": [
+        {
+          "cm_model_id": "123914361757269005",
+          "cm_model": "DS3"
+        },
+        {
+          "cm_model_id": "123914361757269007",
+          "cm_model": "DS4"
+        },
+        {
+          "cm_model_id": "123914361421724691",
+          "cm_model": "DS5"
+        }
+      ]
+    }
+  ],
+  "status": "ok"
+}

@@ -9,8 +9,74 @@
     <script src="../../../plugins/AngularJS/angular.min.js" charset="utf-8"></script>
     <script type="text/javascript">
         var app = angular.module('app', []);
-        app.controller('promiseController', ['$scope', '$http' function($scope, $http){
-            $http.get('config.json').success(success).error(error);
+        app.controller('promiseController', ['$scope', '$q', '$timeout', '$http', function($scope, $q, $timeout, $http){
+            /*
+             *  用延迟来模拟异步请求
+             */
+            // var one = $q.defer();
+            // var two = $q.defer();
+            // var three = $q.defer();
+            // $timeout(function() {
+            //     one.resolve("one done");
+            // }, Math.random() * 3000);
+            //
+            // $timeout(function() {
+            //     two.resolve("two done");
+            // }, Math.random() * 1000);
+            //
+            // $timeout(function() {
+            //     three.resolve("three done");
+            // }, Math.random() * 1000);
+            //
+            // function success(data) {
+            //     // 返回的data是一个数组
+            //     console.log(data);
+            //     document.write('<p>' + data + '</p>');
+            // }
+            // var all = $q.all([one.promise, two.promise, three.promise]);
+            // all.then(success);
+
+            /*
+             *  用异步请求来实现promise 和 $q.all
+             */
+
+            // var promise = [];
+            // for(var i = 0; i < 5; i++){
+            //     var defer = $q.defer();
+            //     promise.push(defer.promise);
+            //     ajaxFn(defer);
+            // }
+            // var all = $q.all(promise);
+            // all.then(function(data){
+            //     console.log(data);
+            // });
+            //
+            // function ajaxFn(defer){
+            //     $http.get('config.json').success(function(res){
+            //         defer.resolve(res.data);
+            //     }).error(function(){
+            //         console.log('error');
+            //     });
+            // }
+
+            /*
+             *  用promise对象的构造函数生成promise实例
+             */
+
+            // var promise = new Promise(function(resolve, reject){
+            //     $http.get('config.json').success(function(res){
+            //         resolve(res.data);
+            //     }).error(function(){
+            //         reject(res.data);
+            //     });
+            // });
+            //
+            // // then方法可以接受两个回调函数作为参数。第一个回调函数是Promise对象的状态变为Resolved时调用，第二个回调函数是Promise对象的状态变为Reject时调用。其中，第二个函数是可选的，不一定要提供。这两个函数都接受Promise对象传出的值作为参数。
+            // promise.then(function(value){
+            //     console.log(value);
+            // }, function(value){
+            //     console.log();
+            // });
         }]);
     </script>
 </body>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉框样式</title>
+    <link rel="stylesheet" href="../../plugins/bootstrap-3.3.7/css/bootstrap.css" />
+    <style>
+        .rel {
+            position: relative;
+        }
+        .arrow-down{
+            width:0;
+            height:0;
+            border-left:6px solid transparent;
+            border-right:6px solid transparent;
+            border-top:6px solid rgba(0,0,0,0.6);
+            position: absolute;
+            top: 50%;
+            right: 10px;
+        }
+        /* 去掉ios的阴影，以及去掉select的下拉箭头 */
+        select {-webkit-appearance: none;}
+    </style>
+</head>
+<body>
+    <div class="rel">
+        <select class="form-control">
+            <option value="">111</option>
+            <option value="">222</option>
+        </select>
+        <i class="arrow-down"></i>
+    </div>
+</body>
+</html>

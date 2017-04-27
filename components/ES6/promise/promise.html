@@ -11,7 +11,7 @@
         var app = angular.module('app', []);
         app.controller('promiseController', ['$scope', '$q', '$timeout', '$http', function($scope, $q, $timeout, $http){
             /*
-             *  用延迟来模拟异步请求
+             *  1、用延迟来模拟异步请求
              */
             // var one = $q.defer();
             // var two = $q.defer();
@@ -37,7 +37,7 @@
             // all.then(success);
 
             /*
-             *  用异步请求来实现promise 和 $q.all
+             *  2、用异步请求来实现promise 和 $q.all
              */
 
             // var promise = [];
@@ -60,7 +60,7 @@
             // }
 
             /*
-             *  用promise对象的构造函数生成promise实例
+             *  3、用promise对象的构造函数生成promise实例
              */
 
             // var promise = new Promise(function(resolve, reject){
@@ -71,12 +71,53 @@
             //     });
             // });
             //
-            // // then方法可以接受两个回调函数作为参数。第一个回调函数是Promise对象的状态变为Resolved时调用，第二个回调函数是Promise对象的状态变为Reject时调用。其中，第二个函数是可选的，不一定要提供。这两个函数都接受Promise对象传出的值作为参数。
+            /*
+            then方法可以接受两个回调函数作为参数。
+            第一个回调函数是Promise对象的状态变为Resolved时调用，
+            第二个回调函数是Promise对象的状态变为Reject时调用。
+            其中，第二个函数是可选的，不一定要提供。
+            这两个函数都接受Promise对象传出的值作为参数。
+            */
             // promise.then(function(value){
             //     console.log(value);
             // }, function(value){
             //     console.log();
             // });
+
+            /*
+             * 4、运行多个异步请求时的操作
+             */
+             var promiseList = [];
+             for (var i = 0; i < 5; i++) {
+                 promiseList.push(ajaxFn());
+             }
+
+            function ajaxFn(){
+                return new Promise(function(resolve, reject){
+                    $http.get('config.json').success(function(res){
+                        resolve(res.data);
+                    }).error(function(){
+                        reject(res.data);
+                    });
+               });
+            }
+
+            /*
+                Promise.all接收一个promise对象数组，该回调函数返回一个数组的结果集
+                Promise.all的状态由接收的promise对象数组的元素决定：
+                若该数组元素状态均为fulfilled，Promise.all的状态才会变为fulfilled；
+                若该数组元素只要有一个状态为rejected，则Promise.all的状态就为rejected
+                建议使用catch方法（可以捕获前面then方法执行的错误，也更接近与try，catch的写法），而不要使用then方法的第二个参数
+                catch方法返回的还是一个 Promise 对象，因此后面还可以接着调用then方法。
+            */
+            Promise.all(promiseList)
+                .then(function(value){
+                    console.log(value);
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+                ;
         }]);
     </script>
 </body>

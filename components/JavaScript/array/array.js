@@ -242,7 +242,55 @@
  * 方法在适当的位置对数组的元素进行排序，并返回数组。
  * sort排序不一定是未定的，默认排序是根据字符串Unicode码点
  */
- let res = [2,3,5,1,6,99].sort((first, second) => {
-     return first - second;
- });
- console.log(res);
+//  let res = [2,3,5,1,6,99].sort((first, second) => {
+//      return first - second;
+//  });
+//  console.log(res); // [1,2,3,5,6,99]
+
+/**
+ * 16、splice(start[, deleteCount, item1, item2, ...])
+ *  start -> 指定修改的开始位置（从0计数）。
+ *          如果超出了数组的长度，则从数组末尾开始添加内容；
+ *          如果是负值，则表示从数组末位开始的第几位（从1计数）；
+ *          若只使用start参数而不使用deleteCount、item，如：array.splice(start) ，表示删除[start，end]的元素。
+ *  deleteCount  -> 整数，表示要移除的数组元素的个数。
+ *                  如果 deleteCount 是 0，则不移除元素。
+ *                  这种情况下，至少应添加一个新元素。
+ *                  如果 deleteCount 大于start 之后的元素的总数，则从 start 后面的元素都将被删除（含第 start 位）。
+*                   如果deleteCount被省略，则其相当于(arr.length - start)。
+ *  item1, item2, ...  -> 要添加进数组的元素,从start 位置开始。如果不指定，则 splice() 将只删除数组元素。
+ * 方法通过删除现有元素/或添加新元素来更改一个数组的内容
+ * 返回由被删除的元素组成的一个数组。如果只删除了一个元素，则返回只包含一个元素的数组。如果没有删除元素，则返回空数组。
+ * 该方法会修改原始数组
+ */
+var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+myFish.splice(2, 0, 'drum'); // 在索引为2的位置插入'drum'
+console.log(myFish); // myFish 变为 ["angel", "clown", "drum", "mandarin", "sturgeon"]
+myFish.splice(1, 1); // 从索引为2的位置删除一项（也就是'drum'这一项）
+console.log(myFish); // ["angel", "drum", "mandarin", "sturgeon"]
+
+
+/**
+ * 17、unshift(element, ..., elementN)
+ * element -> 要添加到数组的元素
+ * 方法将一个或多个元素添加到数组的开头，并返回新数组的长度
+ */
+// var arr = [1, 2];
+// arr.unshift(0); //result of call is 3, the new array length
+// //arr is [0, 1, 2]
+// arr.unshift(-2, -1); // = 5
+// //arr is [-2, -1, 0, 1, 2]
+// arr.unshift( [-3] );
+// //arr is [[-3], -2, -1, 0, 1, 2]
+
+/**
+ * 18、concat(value1[, value2[, ...[, valueN]]])
+ * valueN -> 将数组和/或值连接成新数组
+ * 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
+ * 返回新的Array实例，该方法不改变原始数组
+ */
+// var num1 = [1, 2, 3],
+// num2 = [4, 5, 6],
+// num3 = [7, 8, 9];
+// var nums = num1.concat(num2, num3);
+// console.log(nums); // results in [1, 2, 3, 4, 5, 6, 7, 8, 9]

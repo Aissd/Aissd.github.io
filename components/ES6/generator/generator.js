@@ -4,18 +4,31 @@
     value属性表示当前的内部状态的值，是yield语句后面那个表达式的值；
     done属性是一个布尔值，表示是否遍历结束。
 */
-function* helloWorldGenerator() {
-    yield 'hello';
-    yield 'world';
-    return 'ending';
+// function* helloWorldGenerator() {
+//     yield 'hello';
+//     yield 'world';
+//     return 'ending';
+// }
+// var hw = helloWorldGenerator();
+// console.log(hw.next()); // { value: 'hello', done: false }
+// console.log(hw.next()); // { value: 'world', done: false }
+// console.log(hw.next()); // { value: 'ending', done: true }
+// console.log(hw.next()); // { value: undefined, done: true }
+
+class Foo {
+    constructor(...args) {
+        this.args = args;
+    }
+
+    * [Symbol.iterator] () {
+        for(let arg of this.args) {
+            yield arg;
+        }
+    }
 }
 
-var hw = helloWorldGenerator();
-console.log(hw.next());
-// { value: 'hello', done: false }
-console.log(hw.next());
-// { value: 'world', done: false }
-console.log(hw.next());
-// { value: 'ending', done: true }
-console.log(hw.next());
-// { value: undefined, done: true }
+console.log(new Foo('hello', 'world'));
+
+for(let x of new Foo('hello', 'world')) {
+    console.log(x);
+}

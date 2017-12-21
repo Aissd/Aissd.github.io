@@ -198,6 +198,16 @@
  */
 // console.log([1,2,3,4,5].includes(5)); // true
 
+// function unique(arr) {
+//     var ret = [];
+//     arr.forEach(function(item){
+//         if(!ret.includes(item)){
+//             ret.push(item);
+//         }
+//     });
+//     return ret;
+// }
+
 /**
  * 12、reverse()
  *  方法颠倒数组中元素的位置，并返回该数组的引用
@@ -263,12 +273,11 @@
  * 返回由被删除的元素组成的一个数组。如果只删除了一个元素，则返回只包含一个元素的数组。如果没有删除元素，则返回空数组。
  * 该方法会修改原始数组
  */
-var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
-myFish.splice(2, 0, 'drum'); // 在索引为2的位置插入'drum'
-console.log(myFish); // myFish 变为 ["angel", "clown", "drum", "mandarin", "sturgeon"]
-myFish.splice(1, 1); // 从索引为2的位置删除一项（也就是'drum'这一项）
-console.log(myFish); // ["angel", "drum", "mandarin", "sturgeon"]
-
+// var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+// myFish.splice(2, 0, 'drum'); // 在索引为2的位置插入'drum'
+// console.log(myFish); // myFish 变为 ["angel", "clown", "drum", "mandarin", "sturgeon"]
+// myFish.splice(1, 1); // 从索引为2的位置删除一项（也就是'drum'这一项）
+// console.log(myFish); // ["angel", "drum", "mandarin", "sturgeon"]
 
 /**
  * 17、unshift(element, ..., elementN)
@@ -294,3 +303,16 @@ console.log(myFish); // ["angel", "drum", "mandarin", "sturgeon"]
 // num3 = [7, 8, 9];
 // var nums = num1.concat(num2, num3);
 // console.log(nums); // results in [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+/**
+ * 19、from(arrayLike, mapFn, thisArg)
+ * arrayLike 想要换成数组的伪数组对象或可迭代对象
+ * mapFn 若指定了改参数，新数组中的每个元素都会执行该回调函数
+ * thisArg 执行回调函数mapFn时的this对象
+ */
+// let array = [1,2,2,3,3,3,4,5,6,6,7,,8,,9,9,10,,];
+// function unique(arr){
+//     var set = new Set(arr);
+//     return Array.from(set);
+// }
+// console.log(unique(array)); // [1, 2, 3, 4, 5, 6, 7, undefined, 8, 9, 10]

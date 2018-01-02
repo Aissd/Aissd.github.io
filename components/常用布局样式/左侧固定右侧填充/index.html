@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>左侧固定右侧填充</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <!-- 方法一： -->
+    <div class="form-container">
+        <label class="left-label">左边的文字</label>
+        <div class="right-content">
+            <input type="text" />
+        </div>
+    </div>
+
+    <div class="box-container">
+        <div class="left-label" style="background-color: #f00;">左边</div>
+        <div class="right-content" style="background-color: #0f0;">右边</div>
+    </div>
+    <h3>方法一：</h3>
+    <xmp>
+        <div class="form-container">
+            <label class="left-label">左边的文字</label>
+            <div class="right-content">
+                <input type="text" />
+            </div>
+        </div>
+    </xmp>
+    <h4>关键样式：</h4>
+    <xmp>
+        .left-label {
+            width: 120px;
+            float: left;
+        }
+        .right-content {
+            margin-left: 120px;
+        }
+    </xmp>
+
+    <!-- --------------------------- 弹性布局 ----------------------------- -->
+
+    <div class="flex-container">
+        <label class="flex-left" style="background-color: #f00;">左边的文字</label>
+        <div class="flex-right" style="background-color: #0f0;">
+            <input type="text" />
+        </div>
+    </div>
+
+    <h3>方法二：</h3>
+    <xmp>
+        <div class="flex-container">
+            <label class="flex-left" style="background-color: #f00;">左边的文字</label>
+            <div class="flex-right" style="background-color: #0f0;">
+                <input type="text" />
+            </div>
+        </div>
+    </xmp>
+    <h4>关键样式：</h4>
+    <xmp>
+        .flex-left {
+            flex-grow: 0;  /* 指定为flex布局 */
+            flex-shrink: 0;  /* 项目缩小的比例。若空间不足，项目则会缩小;0时当空间不足时不缩小 */
+            flex-basis: 120px;  /* 项目占据主轴控件 */
+            flex: 0 0 120px; /* flex-grow,flex-shrink,flex-basis 简写 */
+        }
+        .flex-right {
+            flex-grow: 1;  /* 指定为flex布局 */
+        }
+    </xmp>
+</body>
+</html>

@@ -1,0 +1,38 @@
+/* 方法一 */
+.form-container {
+    width: 300px;
+    margin: 0 auto;
+}
+.left-label {
+    width: 110px;
+    float: left;
+    display: block;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.right-content {
+    margin-left: 120px;
+}
+
+.right-content input[type="text"] {
+    width: 100%;
+}
+
+/* 方法二 */
+.flex-container {
+    display: flex; /* 指定为flex布局 */
+}
+
+.flex-left {
+    flex-grow: 0;  /* 指定为flex布局 */
+    flex-shrink: 0;  /* 项目缩小的比例。若空间不足，项目则会缩小;0时当空间不足时不缩小 */
+    flex-basis: 120px;  /* 项目占据主轴控件 */
+    flex: 0 0 120px; /* flex-grow,flex-shrink,flex-basis 简写 */
+    text-align: right; 
+    padding-right: 10px;
+}
+
+.flex-right {
+    flex-grow: 1;  /* 指定为flex布局 */
+}

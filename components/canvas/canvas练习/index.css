@@ -1,0 +1,57 @@
+img {
+    width: 100%;
+}
+
+ul, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+label, input[type="radio"] {
+    cursor: pointer;
+}
+
+.rows:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+.column-3 {
+    width: 30%;
+    float: left;
+}
+
+.column-4 {
+    width: 40%;
+    float: left;
+}
+
+.column-5 {
+    width: 50%;
+    float: left;
+}
+
+.column-6 {
+    width: 60%;
+    float: left;
+}
+
+.column-10 {
+    width: 100%;
+    float: left;
+}
+
+.bg-list {
+    width: 300px;
+}
+
+.bg-list li {
+    padding: 10px;
+    float: left;
+    height: 200px;
+    overflow: hidden;
+}

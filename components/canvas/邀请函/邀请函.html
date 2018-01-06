@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>下载图片</title>
+    <link rel="stylesheet" href="./邀请函.css">
+</head>
+<body>
+    <div>
+        <div class="set-option">
+            <table>
+                <tr>
+                    <td>画布尺寸</td>
+                    <td><input type="text" class="text" id="size" /></td>
+                </tr>
+                <tr>
+                    <td>背景图片</td>
+                    <td><input type="file" id="file" /></td>
+                </tr>
+                <tr>
+                    <td>用户名</td>
+                    <td><input type="text" class="text" id="user-name" /></td>
+                </tr>
+                <tr>
+                    <td>用户名x坐标</td>
+                    <td>
+                        <input type="number" class="text" id="text-option-x" /></br>
+                        <p><input type="checkbox" class="check-box" value="1" id="is-center-x"> 居中显示</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>用户名y坐标</td>
+                    <td>
+                        <input type="number" class="text" id="text-option-y" /></br>
+                        <p><input type="checkbox" class="check-box" value="1" id="is-center-y"> 居中显示</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>用户名字体大小</td>
+                    <td><input type="number" class="text" id="text-size" /></td>
+                </tr>
+                <tr>
+                    <td>文字颜色</td>
+                    <td><input type="text" class="text" id="text-color" /></td>
+                </tr>
+                <tr>
+                    <td>图片类型</td>
+                    <td>
+                        <select type="text" class="text" id="img-type">
+                            <option value="jpg">jpg</option>
+                            <option value="png">png</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button id="save-image" class="btn-save">效果预览</button>
+            <button id="download-img" class="btn-download">下载当前图片</button>
+            <button id="download-all" class="btn-all">批量导出</button>
+        </div>
+        <div class="show-canvas">
+            <canvas width="200" height="200" id="thecanvas"></canvas>
+        </div>
+    </div>
+    <script src="./邀请函.js" crossorigin="anonymous"></script>
+</body>
+</html>

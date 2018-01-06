@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="canvas-container">
+        <div class="rows">
+            <!-- 填写配置 -->
+            <div class="column-5">
+                <form name="configForm">
+                    <!-- 文案 -->
+                    <div class="rows">
+                        <label class="column-4">填写标题：</label>
+                        <div class="column-6">
+                            <input type="text" id="title" value="hello world" />
+                        </div>
+                    </div>
+                    <!-- 背景颜色 -->
+                    <div class="rows">
+                        <label class="column-4">背景颜色：</label>
+                        <div class="column-6">
+                            <label><input type="radio" name="bgColorGroup" value="rgba(255, 0, 0, 0.6)" checked /> 红</label>
+                            <label><input type="radio" name="bgColorGroup" value="rgba(255, 225, 0, 0.6)" /> 黄</label>
+                            <label><input type="radio" name="bgColorGroup" value="rgba(0, 0, 255, 0.6)" /> 蓝</label>
+                            <label><input type="radio" name="bgColorGroup" value="rgba(0, 255, 0, 0.6)" /> 绿</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- 生成预览 -->
+            <div class="column-5">
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="./plugins/qrcode/qrcodealg.js"></script> -->
+    <!-- <script src="./plugins/qrcode/index.js"></script> -->
+    <script src="./index.js"></script>
+</body>
+</html>

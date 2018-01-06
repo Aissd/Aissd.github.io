@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #can{  
+            background:#000;  
+        }  
+    </style>
+</head>
+<body>
+    <div onload="drawImg()">
+        <canvas id="can" width="500" height="500">您的浏览器不支持canvas标签，请您更换浏览器！！</canvas>  
+        <img src="http://img2.3lian.com/2014/f5/63/d/16.jpg" id="img" style="display:none" />  
+    </div>
+    <script>
+        /*  
+        设置背景  
+            createPattern(img,平铺方式)  
+            平铺方式:repeat,repeat-x,repeat-y,no-repeat  
+        */  
+        var can = document.getElementById("can");     
+        var cxt = can.getContext("2d");  
+        var imgs = new Image();  
+        imgs.src = "http://img2.3lian.com/2014/f5/63/d/16.jpg";  
+        imgs.onload = createPat;//图片加载完成再执行  
+        function createPat(){  
+            var bg = cxt.createPattern(imgs,"no-repeat");  
+            cxt.fillStyle = bg;  
+            cxt.fillRect(0,0,can.width,can.height);  
+        }  
+    </script>
+</body>
+</html>

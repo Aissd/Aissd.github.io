@@ -1,0 +1,19 @@
+.borderbox {
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    border: 10px solid #000;
+    background-color: #f00;
+    padding: 10px;
+    margin: 10px;
+}
+
+.contentbox {
+    width: 200px;
+    height: 200px;
+    box-sizing: content-box;
+    border: 10px solid #0f0;
+    background-color: #ff0;
+    padding: 10px;
+    margin: 10px;
+}

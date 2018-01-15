@@ -29,8 +29,7 @@ window.onload = function() {
     // --------------- 选择图片的功能
     // 获取图片控件
     var file = document.getElementById('file'),
-        imageFile,
-        imageData;
+        imageFile;
     file.addEventListener('change', function(e){
         // 获取图片
         imageFile = e.target.files[0];
@@ -40,9 +39,7 @@ window.onload = function() {
         // 图片加载后
         reader.onload = function(e) {
             // 设置option的img属性，再冲洗年绘制
-            console.log(this);
-            imageData = this.result;
-            option.img = imageData;
+            option.img = this.result;
             draw(option);
         };
     });
@@ -58,7 +55,7 @@ window.onload = function() {
     // --------------- 下载图片
     var downloadBtn = document.getElementById('download-img');
     downloadBtn.addEventListener('click', function(){
-        downloadImg('当前画布图');
+        downloadImg();
     });
 
     // --------------- 更改图片类型
@@ -109,28 +106,11 @@ function draw(obj) {
 }
 
 // 下载图片
-function downloadImg(fileName) {        
-    //获取canvas        
-    var myCanvas = document.getElementById("thecanvas");
-    var url = myCanvas.toDataURL();
-    var alink = document.createElement("a");
-    alink.href = url; 
-    alink.download = "二维码.jpg"; // 下载图片的名称
+function downloadImg() {
+    // 获取canvas        
+    var canvas = document.getElementById('thecanvas');
+    var alink = document.createElement('a');
+    alink.href = canvas.toDataURL(); 
+    alink.download = '二维码.jpg'; // 下载图片的名称
     alink.click(); // 模拟点击下载
 }
-
-// // 下载图片
-// function downloadImg(fileName) {        
-//     //获取canvas        
-//     var myCanvas = document.getElementById("thecanvas");
-//     //设置图片类型
-//     var image = myCanvas.toDataURL("image/" + option.imgType).replace("image/" + option.imgType, "image/octet-stream");   
-//     var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
-//     save_link.href = image;        
-//     //设置下载图片的名称
-//     save_link.download = fileName + '.' + option.imgType;        
-//     //下载图片
-//     var event = document.createEvent('MouseEvents');
-//     event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);        
-//     save_link.dispatchEvent(event);
-// }

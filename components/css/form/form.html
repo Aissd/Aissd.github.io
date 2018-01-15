@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>美化表单</title>
+    <style>
+        /* CSS */
+        .form-group {
+            position: relative;
+            padding-top: 1.5rem;
+        }
+
+        label {
+            position: absolute;
+            top: 0;
+            font-size: var(--font-size-small);
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.2s ease-out;
+        }
+
+        input:placeholder-shown+label {
+            opacity: 0;
+            transform: translateY(1rem);
+        }
+
+        /* CSS */
+        input:required+.help-text::before {
+            content: '*Required';
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML -->
+    <div class="form-group">
+        <input type="text" id="dynamic-label-input" placeholder="Enter some text">
+        <label for="dynamic-label-input">Enter some text</label>
+    </div>
+
+    <label for="required-input">Required input</label>
+    <input type="text" id="required-input" required>
+    <span class="help-text"></span>
+</body>
+
+</html>

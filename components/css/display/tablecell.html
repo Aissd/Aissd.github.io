@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>table-cell</title>
+    <style>
+        /* 例1 - table-cell与大小不固定元素的垂直居中 */
+        /* 
+        .ex1 {display:table-cell;width:1em;height:1em;border:1px solid #beceeb;font-size:144px;text-align:center;vertical-align:middle;}
+        .ex1 img{vertical-align:middle;}
+        */
+
+        /* 例2 - table-cell与两栏自适应布局 */
+        /* 
+        .ex2 {width:60%;margin:60px auto 0;padding:20px;background:#f5f5f5;font-size:9px}
+        .ex2:after{content:'';height:0;overflow:hidden;clear:both;display:block}
+        .ex2 a{float:left;margin-right:10px}
+        .ex2 .content{display:table-cell;*display:inline-block}
+        .ex2 .content p{margin-top:5px}
+        */
+
+        /* 例3 - table-cell下的等高布局 */
+        /* 
+        .ex3 {width:600px;margin:40px auto;font-size:12px}
+        .ex3 .list_row{display:table-row;overflow:hidden}
+        .ex3 .list_cell{display:table-cell;width:30%;margin-bottom:-100px;padding:1.6%;background-color:#f5f5f5}
+        .ex3 .list_center{background-color:#f0f3f9} 
+        */
+
+        /* 例4 - table-cell下的列表布局 */
+        .ex4 .list_row{display:table-row;}
+        .ex4 .list_cell{display:table-cell;width:33.3%;padding-bottom:30px;vertical-align:top;}
+        .ex4 ul{padding-left:25px;color:#999;list-style:disc;}
+        .ex4 a{color:#34538b;text-decoration:underline;}
+    </style>
+</head>
+
+<body>
+    <!-- 例1 - table-cell与大小不固定元素的垂直居中 -->
+    <!-- <div class="ex1">
+        <img src="./aoa.jpg" alt="xfc" />
+    </div>
+    <div class="ex1">
+        <img src="./basketball.jpg" alt="xfc" />
+    </div>
+    <div class="ex1">
+        <img src="./cat.jpg" alt="xfc" />
+    </div>
+    <div class="ex1">
+        <img src="./dingguagua.png" alt="xfc" />
+    </div> -->
+
+    <!-- 例2 - table-cell与两栏自适应布局 -->
+    <!-- <div class="ex2">
+        <a href="#prettyGirl">
+            <img border="0" src="http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" />
+        </a>
+        <div class="content">
+            <p><a href="#prettyGirl">大美女一枚</a> 来自上海</p>
+            <p>签名：想找个保鲜盒把你给我的那些感动都装起来。当你让我伤心的时候就拿出来回味一下。</p>
+            <p>微博：坐在办公室，只听轰隆隆几声巨响，晴天也能打雷吗？原来街对面的芭莎咖啡厅被炸成了两截。这定点爆破也太失败了，也不清下场，把路过的汽车震得灰头土脸，愣在路中央不知如何是好。其次，房子只炸了一半，另一半屹立不倒，是乍药太水还是房子质量太好？</p>
+        </div>
+    </div> -->
+
+    <!-- 例3 - table-cell下的等高布局 -->
+    <!-- <div class="ex3">
+        <div class="list_row">
+            <div class="list_cell">你一定也有过这种感觉的。当你心事重重，渴望找一个人聊一聊的时候，那个可以聊的人来了，可是你们却并没有聊什么。当然，聊是聊了，可是他聊他的，你也试着开始聊你的，只是到后来，你放弃了……那么，最后的办法就是静下来，啃啮自己的寂寞。或者反过来说，让寂寞来吞噬你。------罗兰《寂寞的感觉》</div>
+            <div class="list_cell list_center">作为一个被基阿异捅过两个大血窟窿的人。告诉后来的基友们一句：一命二运三风水，四积阴功五读书。</div>
+            <div class="list_cell">奔波了一天，收到了无数的生日快乐，享受了电影见面会现场各种形式的祝福和礼物，以及场面宏大的生日快乐歌，感谢＜西风烈＞，感谢支持我的朋友们！现在机场举长寿面祝你们都永远幸福快乐！ </div>
+        </div>
+    </div> -->
+
+    <!-- 例4 - table-cell下的列表布局 -->
+    <div class="ex4">
+        <div class="list_row">
+            <div class="list_cell">
+                <ul>
+                    <li>111111111111111111111111111111111111111111111111111111111111111</li>
+                    <li>2222222222222222222222222222222222222222222222222222222222222</li>
+                    <li>333333333333333333333333333333333333333333333333333333333333333333333</li>
+                </ul>
+            </div>
+            <div class="list_cell">
+                <ul>
+                    <li>111111111111111111111111111111111111111111111111111111111111111</li>
+                    <li>2222222222222222222222222222222222222222222222222222222222222</li>
+                    <li>333333333333333333333333333333333333333333333333333333333333333333333</li>
+                    <li>4444444444444444444444444444444444444444444444444444444</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </div>
+            <div class="list_cell">
+                <ul>
+                    <li>111111111111111111111111111111111111111111111111111111111111111</li>
+                </ul>
+            </div>
+        </div>
+        <div class="list_row">
+            <div class="list_cell">
+                <ul>
+                    <li>111111111111111111111111111111111111111111111111111111111111111</li>
+                    <li>2222222222222222222222222222222222222222222222222222222222222</li>
+                    <li>333333333333333333333333333333333333333333333333333333333333333333333</li>
+                </ul>
+            </div>
+            <div class="list_cell">
+                <ul>
+                    <li>111111111111111111111111111111111111111111111111111111111111111</li>
+                    <li>2222222222222222222222222222222222222222222222222222222222222</li>
+                    <li>333333333333333333333333333333333333333333333333333333333333333333333</li>
+                    <li>4444444444444444444444444444444444444444444444444444444</li>
+                    <li>5</li>
+                    <li>6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666</li>
+                </ul>
+            </div>
+            <div class="list_cell">
+                <ul>
+                    <li>111111111111111111111111111111111111111111111111111111111111111</li>
+                    <li>2222222222222222222222222222222222222222222222222222222222222</li>
+                    <li>333333333333333333333333333333333333333333333333333333333333333333333</li>
+                    <li>4444444444444444444444444444444444444444444444444444444</li>
+                    <li>5</li>
+                    <li>6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

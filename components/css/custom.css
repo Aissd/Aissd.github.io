@@ -1,0 +1,16 @@
+.clearfix:after {
+    content: '';
+    height: 0;
+    overflow: hidden;
+    display: block;
+    clear: both;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+

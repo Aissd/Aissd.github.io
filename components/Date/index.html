@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Date</title>
+</head>
+<body>
+    <script src="../../plugins/moment.js"></script>
+    <script>
+        var start, end;
+        start = new Date();
+        //  ----------  计算以下函数运行完的时间
+        for(var i; i< 1000; i++) {
+            Math.sqrt(i); // 求平方根
+        }
+        //  ----------  计算以下函数运行完的时间
+        end = new Date();
+        console.log("Operation took " + (end.getTime() - start.getTime()) + " msec");//yyyy-MM-dd HH:mm:SS
+
+        // ios中日期的坑
+        // http://blog.csdn.net/zhoukun1008/article/details/51537862
+
+
+        // 当前时间
+        // 2018-01-25 14:22:12
+        var dateStr = '2018-01-25 14:22:12';
+        console.log(new Date(dateStr).getTime());
+    </script>
+</body>
+</html>

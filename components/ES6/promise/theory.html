@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise的原理</title>
+</head>
+<body>
+    <script>
+        /**
+          * 极简Promist雏形
+          */
+        function Promise(fn) {
+            var state = 'pending',
+                value = null, 
+                callbacks = []; // 数组，是因为可能同时有很多个回调
+
+            // 调用then方法，将想要在Promise异步操作成功时执行的回调放入callbacks队列，其实也就是注册回调函数，可以向观察者模式方向思考；
+            this.then = function(onFulfilled) {
+                return new Promist(function(resolve) {
+                    handle({
+                        onFulfilled: onFulfilled || null,
+                        resolve: resolve
+                    });
+                });
+            }
+
+            function handle(callback) {
+                if(state === 'pending') {
+                    callbacks.push(onFulfilled);
+                    // return this 让then方法能否链式调用
+                    return;
+                }
+                if(!callback.onFulfilled) {
+                    callback.resolve(value);
+                    return;
+                }
+                var ret = callback.onFulfilled(value);
+                callback.resolve(ret);
+            }
+            
+            /**
+            * 创建Promise实例时传入的函数会被赋予一个函数类型的参数，即resolve，它接收一个参数value，代表异步操作返回的结果，
+            * 当一步操作执行成功后，用户会调用resolve方法，这时候其实真正执行的操作是将callbacks队列中的回调一一执行；
+            */
+            function resolve(newValue) {
+                if(newValue && (typeof newValue === 'object' || typeof newValue === 'function')) {
+                    var then = newValue.then;
+                    if(typeof then === 'function') {
+                        then.call(newValue, resolve);
+                        return;
+                    }
+                }
+                state = 'fulfilled';
+                value = newValue;
+                /**
+                * promise规范明确要求回调通过异步方式执行，保证resolve执行之前，then方法已经注册完成所有回调
+                * 当一步操作执行成功后，用户会调用resolve方法，这时候其实真正执行的操作是将callbacks队列中的回调一一执行；
+                */
+                setTimeout(function(){
+                    callbacks.forEach(function(callback) {
+                        handle(callback);
+                    });
+                }, 0);
+            }
+            fn(resolve);
+        }
+    </script>
+</body>
+</html>

@@ -89,9 +89,9 @@
         }
         console.log('--------------动态原型方法-----------------');
         var school1 = new School("惠州学院", "一本", true);
-        console.log(school1.getName());
+        console.log(school1.getName()); // 惠州学院
 
         var school2 = new School("广东海洋大学", "一本", true);
-        console.log(school2.getName());
+        console.log(school2.getName()); // 广东海洋大学
 
-        console.log(school1.getName == school2.getName);
+        console.log(school1.getName == school2.getName); // true

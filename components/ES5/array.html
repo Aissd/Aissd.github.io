@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IE6 - IE8 兼容ES5新增的Array方法</title>
+</head>
+<body>
+    <script>
+        /**
+         * forEach
+         */    
+        if(typeof Array.prototype.forEach != 'function') {
+            /**
+             *  fn 为回调函数
+             * context 当执行回调函数时，用作this的值（参考对象）
+             */
+            Array.prototype.forEach = function(fn, context) {
+                // this 即调用forEach的数组
+                for(var k = 0, length = this.length; k < length; k++) {
+                    // Object.prototype.hasOwnProperty.call(this, k) 加这个判断是为了去掉数组中值为undefined的元素
+                    if(typeof fn === 'function' && Object.prototype.hasOwnProperty.call(this, k)) {
+                        // fn.call(context, this[k], k, this); forEach有四个参数
+                        fn.call(context, this[k], k, this);
+                    }
+                }
+            };
+        }
+        // ['a', 'b', 'c',,'e'].forEach(function(elem) {
+        //     console.log(elem); // a,b,c,e
+        // });
+
+        /**
+         * map
+         */
+        if(typeof Array.prototype.map != 'function') {
+            Array.prototype.map = function(fn, context) {
+                var arr = [];
+                if(typeof fn === 'function') {
+                    for(var k = 0, length = this.length; k < length; k++) {
+                        arr.push(fn.call(context, this[k], k, this));
+                    }
+                }
+                return arr;
+            };
+        }
+        // var arr = [{name: 'a', flag: true}, {name: 'b', flag: false}, {name: 'c', flag: true}].map(function(elem) {
+        //     return elem.flag;
+        // });
+        // console.log(arr); // true, false, true
+        /**
+         * filter
+         */
+        if(typeof Array.prototype.filter != 'function') {
+            Array.prototype.filter = function(fn, context) {
+                var arr = [];
+                if(typeof fn === 'function') {
+                    for(var k = 0, length = this.length; k < length; k++) {
+                        fn.call(context, this[k], k, this) && arr.push(this[k]);
+                    }
+                }
+                return arr;
+            };
+        }
+        // var arr = [0, 1, 2, 3].filter(function(elem) {
+        //     return elem;
+        // });
+        // console.log(arr); // 1,2,3
+        
+        /**
+         * some
+         */
+        if(typeof Array.prototype.some != 'function') {
+            Array.prototype.some = function(fn, context) {
+                var passed = false;
+                if(typeof fn === 'function') {
+                    for(var k = 0, length = this.length; k < length; k++) {
+                        if(passed === true) break;
+                        passed = !!fn.call(context, this[k], k, this);
+                    }
+                }
+                return passed;
+            };
+        }
+        
+        /**
+         * every
+         */
+        if(typeof Array.prototype.every != 'function') {
+            Array.prototype.every = function(fn, context) {
+                var passed = true;
+                if(typeof fn === 'function') {
+                    for(var k = 0, length = this.length; k < length; k++) {
+                        if(passed === false) break;
+                        passed = !!fn.call(context, this[k], k, this);
+                    }
+                }
+                return passed;
+            };
+        }
+        
+        /**
+         * indexof
+         */
+        if(typeof Array.prototype.indexof != 'function') {
+            Array.prototype.indexof = function(searchElement, fromIndex) {
+                var index = -1;
+                fromIndex = fromIndex * 1 || 0;
+                for(var k = 0, length = this.length; k < length; k++) {
+                    if(k >= fromIndex && this[k] === searchElement) {
+                        index = k;
+                        break;
+                    }
+                }
+                return index;
+            };
+        }
+    </script>
+</body>
+</html>

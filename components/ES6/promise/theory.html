@@ -10,6 +10,25 @@
 
 <body>
     <script>
+        // Promise 是一个代理对象
+        new Promise(
+            // 执行器
+            function(resolve, reject) {
+                resolve(); // 成功
+
+                reject();
+            }
+        )
+            .then(function() {
+                // 成功
+                /**
+                 * 1、状态响应函数可以返回新的Promise，或者其他值；
+                 * 2、若返回新的promise，那么下一级的then会在新promise状态改变之后执行；
+                 * 3、若返回其他值，则会立即执行下一级then
+                 */
+            }, function() {
+                // 失败
+            });
         function timeout(ms) {
             return new Promise((resolve, reject) => {
                 setTimeout(resolve, ms, 'done');

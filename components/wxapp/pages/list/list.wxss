@@ -1,8 +1,0 @@
-.detail {
-    text-align: center;
-}
-
-.detail image {
-    width: 70rpx;
-    height: 70rpx;
-}

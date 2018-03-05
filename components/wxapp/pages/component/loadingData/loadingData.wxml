@@ -1,4 +1,0 @@
-<view class="weui-loadmore">
-    <text class="weui-loading"></text>
-    <text class="weui-loadmore__tips">{{loadingText}}</text>
-</view>

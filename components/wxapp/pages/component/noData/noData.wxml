@@ -1,4 +1,0 @@
-<view class="no-data">
-    <image src="/image/404.png" class="no-data-image"></image>
-    <view>{{noDataText}}</view>
-</view>

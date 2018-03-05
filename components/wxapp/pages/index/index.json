@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "首页",
-    "usingComponents": {
-      "no-data": "../component/noData/noData",
-      "loading-data": "../component/loadingData/loadingData"
-    }
-}

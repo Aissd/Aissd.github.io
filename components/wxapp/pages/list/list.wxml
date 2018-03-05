@@ -1,1 +1,0 @@
-<component-list list-data="{{allBrandList}}" catchtap="onPageEvent"></component-list>
